@@ -1,0 +1,11 @@
+{
+  "match": "r1-m03",
+  "scores": {
+    "a006": {"correctness": 9, "completeness": 9, "specificity": 9, "robustness": 9, "clarity": 9, "fatal": false},
+    "a009": {"correctness": 10, "completeness": 10, "specificity": 9, "robustness": 10, "clarity": 9, "fatal": false}
+  },
+  "winner": "a009",
+  "reason": "a009 explicitly corrects the evidence_94 cutoff error while preserving the sound conclusion that the null-keyed record cannot be linked to a requester.",
+  "survived": ["a009: corrected eligible-cutoff timing; ownership remains unresolved"],
+  "standing": {"a006": [], "a009": []}
+}

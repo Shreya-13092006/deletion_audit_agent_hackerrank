@@ -1,0 +1,11 @@
+{
+  "match": "r1-m01",
+  "scores": {
+    "a005": {"correctness": 9, "completeness": 8, "specificity": 8, "robustness": 9, "clarity": 9, "fatal": false},
+    "a013": {"correctness": 9, "completeness": 9, "specificity": 9, "robustness": 10, "clarity": 9, "fatal": false}
+  },
+  "winner": "a013",
+  "reason": "a013 provides more specific, individually checkable participant-evidence references for each unresolved resource while reaching the same conservative no-shortcut conclusion.",
+  "survived": ["a013: opponent raised no substantiated attack"],
+  "standing": {"a005": [], "a013": []}
+}

@@ -12,6 +12,97 @@ Read [`problem_statement.md`](./problem_statement.md) for the complete challenge
 
 ---
 
+## Our Solution: an evidence-driven deletion audit agent
+
+### Setup and run
+
+You need Python 3.10 or later. `pip install -r code/requirements.txt` installs pydantic (validates the screenshot facts) and Pillow (only for re-running OCR). With the shipped caches, `output.csv` is reproduced offline.
+
+There are two entry points. **Both write the root `./output.csv` by default**, so the last one you run decides what that file contains. Use `--out <path>` to write somewhere else.
+
+| Command | What it is | Root `output.csv` sha256 |
+|---|---|---|
+| `python code/agent_main.py --no-llm` | **Proof-gated agent: this is the submitted `output.csv`.** The bounded agent loop runs over the same engine, then the proof gates (G2/G3/G4/G9). A COMPLETE answer without cited proof for every linked record and the primary account becomes INCOMPLETE, with post-remediation checks, and is flagged for review. 518 rows: 370 INCOMPLETE, 138 COMPLETE, 10 NOT_APPLICABLE. | `bf634e2c1472cc4b2c699fb4b941ea335c7e9d8042c7fe490cad1ac54c8c0e37` |
+| `python code/main.py` | Baseline deterministic engine, without the proof gates. **Running it overwrites `output.csv` with the baseline predictions** (355 INCOMPLETE, 153 COMPLETE, 10 NOT_APPLICABLE). The 15 cases the gates downgrade go back to COMPLETE. | `1bbba042d47fef1a8fb9fd2eae5182b113c3f8a91394ecb544f9aa4410b4b095` |
+
+`AGENT_PROOF_DOWNGRADE=0 python code/agent_main.py --no-llm` also reproduces the engine hash (`1bbba042…b095`): the gates still run, but they only flag. The 15 cases where the two differ are listed with their evidence in `docs/reviews/recovery-artifacts/20261025-verification/changed_cases.md`.
+
+Hash history: the engine output before the `retained_order_loaded` parser fix (`7a9683fd…ea50`) is preserved at `docs/reviews/recovery-artifacts/20261025-verification/backup/output.csv`. The proof-gated output before that fix was `1d9870ad…cfde6`. The fix adds one step to case_220 (`VERIFY_RECORD_PRESENT legal_hold_4961`) in both.
+
+```bash
+python code/agent_main.py --no-llm        # 518 cases -> ./output.csv (submitted, proof-gated; about 2 s, deterministic)
+python code/main.py                       # 518 cases -> ./output.csv (baseline engine; overwrites the proof-gated file)
+python code/main.py --split sample        # 32 public cases -> ./sample_predictions.csv
+python code/evaluation/main.py [-v]       # run and score the sample split vs dataset/sample_output.csv
+python code/evaluation/main.py --custom   # hand-built evaluation cases
+python code/evaluation/agent_eval.py      # engine vs agent on the samples, tune/hold-out split
+python code/evaluation/verify_output.py   # independent read-only check of ./output.csv (stdlib only; exit 1 on a hard failure)
+python -m unittest discover -s code/tests -t code/tests   # 192 tests
+```
+
+**PDF text extraction:** the code uses `pdftotext` (poppler) when it is on PATH and falls back to `pypdf` if that is installed.
+
+**Screenshots:** facts from the 11 screenshots are already extracted into `code/cache/image_facts.json`, so you don't need to re-run this. To regenerate them:
+- **Local, the default:** `python code/tools/extract_images.py --force` uses the built-in Windows OCR engine (Windows only). It takes three readings per image, parses them deterministically against known identifiers, and validates the result with pydantic.
+- **Gemini vision cross-check (`gemini-3.8-flash`):** set `GEMINI_API_KEY` in your environment (never in a file that is committed), then run `python code/tools/extract_images.py --backend gemini --allow-vision`. No extra package is needed; it uses Python's standard library. It writes `code/cache/image_facts_gemini.json` plus a record-by-record comparison, `image_facts_gemini_vs_ocr.json`. It never overwrites the OCR cache the pipeline reads, and keeps only identifiers already known in the data.
+- **Anthropic vision (alternative):** `pip install anthropic`, export `ANTHROPIC_API_KEY`, then run `... --backend anthropic --allow-vision`.
+
+After either one, re-run `python code/agent_main.py --no-llm`. `--no-llm` forbids model calls but still uses cached results.
+
+### Architecture
+
+The pipeline is sequential, modular and deterministic, in `code/audit/`:
+
+```
+Parse ─► Normalize ─► Resolve identity ─► Classify intent ─► Discover records ─►
+Resolve state @ audit_at ─► Apply policy per record_type ─► Plan remediation/verification ─► Validate ─► Report
+```
+
+| Module | Responsibility |
+|---|---|
+| `parsers/` | Everything becomes one canonical **Observation** card (file_id, observed/captured time, system, resource, record_type, state, PII flag, identifiers, original fields). Sources covered:<br>• 4 SQL schema families (in-memory SQLite, never written)<br>• snapshot bundles, service exports and record ledgers<br>• 7 log line formats, with `*_started`/`*_completed` lines joined by `trace_id`<br>• handover text<br>• PDFs (text layer)<br>• cached screenshot facts<br>• `system_activity.csv` (claims only, plus `LINK_RESOURCE_IDENTITY`, `CLASSIFY_REQUEST`, recreation signals) |
+| `aliases.py` | Alias map: `user_id/customer_reference/subject_reference/subject_ref/subject_selector/lookup_key`, emails across nine field names, `correlation_key` hashes, resource-prefix → system, and table/collection → `deletion_rules` category |
+| `identity.py` | Current and historical emails (trimmed, lowercased), sha256 hashes (verified algorithm) and audit-log `email_hash` values. **Names are never used for linking** |
+| `linker.py` | Exact-identifier links, decoy guard (a record naming another user_id is not linked), resource propagation, `source_resource_id` links, and connectors or backups that repopulated a linked resource |
+| `state.py` | Uses only evidence available at or before `audit_at`. The latest reading wins; at one time point any primary or replica copy showing the record means present; absence by omission comes only from snapshots in scope, for never-observed resources |
+| `policy.py` | Applies `deletion_rules.csv` per **record type**: DELETE, REDACT (support messages, tombstones), ANONYMIZE, RETAIN (security audit, legal hold), plus BLOCK_RESTORE and DISABLE_DATA_FLOW for recreation paths |
+| `planner.py` | Findings, then remediation (flows and restores first), then verification, in table order then system and resource. Findings and COMPLETE verifications cite evidence; future steps use `""` |
+| `pipeline.py` | Orchestration, plus **workflow attribution**: the profile the deletion workflow deleted just before `reported_at`, with its result matching the reported status. Used only when evidence carries no identity, and never by guessing between people |
+| `intent.py` | Multilingual rules (EN/ES/PT/FR/JA/KO/…), explicit non-deletion patterns and `CLASSIFY_REQUEST` corroboration. Model fallback only for undecidable text |
+| `guardrails.py`, `trail.py` | Guardrails listed below |
+| `screen_ocr.py`, `vision_schema.py` | Layout-based parsing of local OCR output, accepting only identifiers that are known or agreed between readings; pydantic models for screenshot facts and the cache |
+| `validate.py` | Checks the output contract before writing |
+
+**Guardrails:**
+- **PII scrubbing** happens before any model call.
+- **Role capabilities:** `parser`, `resolver`, `classifier`, `planner`. `executor` is never granted.
+- **Human approval:** `ApprovalGate` blocks irreversible operations without approval. The agent only *proposes* plans.
+- **Audit trail:** JSONL in `code/cache/audit_trail.jsonl`.
+- **Fail-safe flags:** ambiguous or unresolved identity, unknown state, no citable proof (never COMPLETE without proof), and retained records seen only later.
+
+### Where models are used
+
+| Need | Model | Notes |
+|---|---|---|
+| 11 PNG console screenshots → structured facts | **Used: local Windows OCR** (`Windows.Media.Ocr`) plus closed-world parsing and pydantic validation. Cross-check: **`gemini-3.8-flash`** (`AUDIT_VISION_MODEL`), thinking `medium`, image resolution `ultra_high`, JSON-schema output | One-time; model output goes to a separate file for review and is never read by the pipeline automatically. Ollama `llava:7b` was rejected because it risks hallucinated identifiers |
+| Ambiguous request intent | **`gemini-3.5-flash-lite`** (`AUDIT_INTENT_MODEL`), thinking `minimal`, PII-scrubbed input, JSON-schema output, cached | Used only when the rules can't decide: 0 calls on this dataset. With no `GEMINI_API_KEY` set, the fail-safe applies (NOT_APPLICABLE plus a flag) |
+| PDFs | none (`pdftotext`) | They have a text layer |
+| SQL, JSON, logs, CSV | none | Deterministic |
+
+### Assumptions and known limits
+
+See `code/evaluation/evaluation_report.md` §4 and `docs/dataset-observations.md`. In summary:
+- The workflow timing windows were measured on the public samples.
+- Ownership may come from later evidence, while state and citations never do.
+- Anonymized records in shared report windows are not attributed.
+- Screenshot facts come from local OCR; identifiers are accepted only when they match known data or two OCR readings agree.
+- State evidence must be at most 14 days older than `audit_at` (`AUDIT_STATE_MAX_AGE_DAYS`).
+- Workflow ties decided by time alone are flagged (`ACCOUNT_WORKFLOW_TIME_ONLY_TIE`).
+
+**Results on the 32 public samples:** status accuracy 1.000, step F1 0.971, evidence accuracy 1.000, sequence accuracy 0.688. The samples were also used for tuning, so these are not hidden-test estimates.
+
+---
+
 ## Quick Start
 
 Clone the repository and move into the project directory:

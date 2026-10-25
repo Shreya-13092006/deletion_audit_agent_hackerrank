@@ -1,0 +1,7 @@
+{
+ "security_retention_extract.pdf": {
+  "extractor": "test",
+  "sha256": "8a6428a899dc8d0769048c8e6f6db70c614fe65fd1e0bb87a43c7927c27ecdda",
+  "text": "fresh text"
+ }
+}

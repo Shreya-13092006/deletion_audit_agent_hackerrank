@@ -1,0 +1,18 @@
+{
+ "agent_eval_intent": {
+  "by_model": {},
+  "cache_hits": 0,
+  "calls": 0,
+  "label": "agent_eval_intent",
+  "requests": 518,
+  "total_cost_usd": 0.0
+ },
+ "agent_sample_intent": {
+  "by_model": {},
+  "cache_hits": 0,
+  "calls": 0,
+  "label": "agent_sample_intent",
+  "requests": 32,
+  "total_cost_usd": 0.0
+ }
+}

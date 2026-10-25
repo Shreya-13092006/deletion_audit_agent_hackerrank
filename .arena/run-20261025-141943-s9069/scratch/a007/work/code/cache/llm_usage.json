@@ -1,0 +1,50 @@
+{
+ "agent_eval_intent": {
+  "by_model": {},
+  "cache_hits": 0,
+  "calls": 0,
+  "label": "agent_eval_intent",
+  "requests": 518,
+  "total_cost_usd": 0.0
+ },
+ "agent_sample_intent": {
+  "by_model": {},
+  "cache_hits": 0,
+  "calls": 0,
+  "label": "agent_sample_intent",
+  "requests": 32,
+  "total_cost_usd": 0.0
+ },
+ "agent_sample_planner": {
+  "by_model": {
+   "gemini-3.5-flash-lite": {
+    "calls": 45,
+    "cost_usd": 0.010329,
+    "input_tokens": 9397,
+    "output_tokens": 3004,
+    "thought_tokens": 0
+   }
+  },
+  "cache_hits": 212,
+  "calls": 45,
+  "label": "agent_sample_planner",
+  "requests": 32,
+  "total_cost_usd": 0.010329
+ },
+ "eval_run": {
+  "by_model": {},
+  "cache_hits": 0,
+  "calls": 0,
+  "label": "eval_run",
+  "requests": 518,
+  "total_cost_usd": 0.0
+ },
+ "sample_run": {
+  "by_model": {},
+  "cache_hits": 0,
+  "calls": 0,
+  "label": "sample_run",
+  "requests": 32,
+  "total_cost_usd": 0.0
+ }
+}

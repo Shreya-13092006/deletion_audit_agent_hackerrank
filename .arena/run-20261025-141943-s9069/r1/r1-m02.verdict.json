@@ -1,0 +1,11 @@
+{
+  "match": "r1-m02",
+  "scores": {
+    "a001": {"correctness": 6, "completeness": 5, "specificity": 4, "robustness": 4, "clarity": 7, "fatal": false},
+    "a012": {"correctness": 8, "completeness": 9, "specificity": 9, "robustness": 9, "clarity": 7, "fatal": false}
+  },
+  "winner": "a012",
+  "reason": "a012 makes its no-fix conclusion checkable with precise participant-data searches and case-level evidence, while a001's revised report still lacks the row-level support its attack identified.",
+  "survived": ["Corrected five-record analytics count; lists all five anonymous IDs and separates row state from subject ownership"],
+  "standing": {"a001": ["Major: no reproducible row-level searches or evidence references for the no-fix conclusion"], "a012": []}
+}

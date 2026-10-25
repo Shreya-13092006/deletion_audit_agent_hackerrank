@@ -1,0 +1,12 @@
+--- a/code/audit/trail.py
++++ b/code/audit/trail.py
+@@ -20,3 +20,4 @@
+         with open(self.path, "w", encoding="utf-8", newline="\n") as fh:
+             for entry in self.entries:
+                 fh.write(json.dumps(entry, ensure_ascii=False, sort_keys=True, default=sorted) + "\n")
++# sandbox self-test marker
+--- /dev/null
++++ b/code/tests/test_selftest_marker.py
+@@ -0,0 +1,2 @@
++def test_marker():
++    pass

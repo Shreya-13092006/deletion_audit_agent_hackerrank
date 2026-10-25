@@ -1,0 +1,125 @@
+2026-01-09 04:50:16 account_4979(FAIL) own= gold= | 05:01:59 account_1506(PART) own=user_520 gold= | 05:12:14 account_9641(SUCC) own= gold=
+2026-01-12 04:52:28 account_3407(PART) own= gold= | 05:03:12 account_141(SUCC) own= gold= | 05:14:26 account_3411(FAIL) own= gold= | 10:53:10 account_3146(FAIL) own= gold= | 11:04:53 account_6169(PART) own= gold= | 11:13:26 account_470(SUCC) own= gold=
+2026-01-15 04:54:41 account_6473(PART) own= gold= | 05:05:55 account_1334(SUCC) own= gold= | 10:55:23 account_1184(PART) own= gold= | 11:06:38 account_3693(FAIL) own= gold= | 11:15:08 account_4063(FAIL) own= gold=
+2026-01-17 06:53:56 account_5738(SUCC) own= gold= | 07:13:42 account_634(SUCC) own= gold=
+2026-01-18 10:46:53 account_1400(SUCC) own= gold= | 10:57:37 account_4974(SUCC) own=user_523 gold= | 11:08:50 account_704(FAIL) own= gold=
+2026-01-20 05:45:39 account_445(SUCC) own= gold= | 06:55:38 account_5281(SUCC) own= gold= | 07:04:40 account_3626(SUCC) own= gold= | 07:15:54 account_282(PART) own= gold=
+2026-01-23 05:47:22 account_6623(SUCC) own= gold= | 05:56:53 account_1035(PART) own=user_509 gold= | 06:07:08 account_6049(PART) own= gold= | 06:46:36 account_9784(FAIL) own= gold= | 06:57:20 account_3479(SUCC) own= gold= | 07:06:52 account_2512(PART) own= gold=
+2026-01-26 04:59:48 account_1096(PART) own=user_519 gold= | 05:49:03 account_6161(PART) own= gold= | 05:58:06 account_5423(FAIL) own= gold= | 06:09:49 account_3772(SUCC) own= gold= | 07:08:04 account_7766(PART) own= gold=
+2026-01-28 08:45:55 account_9449(SUCC) own= gold= | 08:56:11 account_2465(SUCC) own= gold= | 09:07:54 account_5582(FAIL) own= gold=
+2026-01-29 05:51:15 account_5394(SUCC) own= gold= | 06:00:47 account_8136(PART) own= gold= | 06:11:31 account_7244(PART) own= gold=
+2026-01-31 07:48:19 account_3589(SUCC) own= gold= | 07:59:32 account_7455(SUCC) own= gold= | 08:47:09 account_5934(FAIL) own= gold= | 08:58:23 account_3119(PART) own=user_475 gold= | 09:09:37 account_3510(SUCC) own= gold=
+2026-02-03 07:50:01 account_6654(PART) own=user_489 gold= | 08:01:15 account_1433(SUCC) own= gold= | 08:10:46 account_4036(SUCC) own= gold= | 08:49:21 account_3205(SUCC) own=user_473 gold= | 09:00:35 account_9904(FAIL) own= gold= | 09:11:20 account_6474(PART) own= gold=
+2026-02-06 07:02:28 account_2554(PART) own= gold= | 07:52:14 account_9031(SUCC) own= gold= | 08:03:28 account_3378(FAIL) own= gold= | 08:12:30 account_5293(SUCC) own= gold=
+2026-02-08 10:50:22 account_077(PART) own= gold= | 10:59:54 account_5167(FAIL) own= gold= | 11:10:38 account_5892(SUCC) own= gold=
+2026-02-09 07:54:27 account_9398(SUCC) own= gold= | 08:14:12 account_2961(SUCC) own= gold=
+2026-02-11 09:51:34 account_1957(PART) own=user_462 gold= | 10:02:18 account_9034(SUCC) own= gold= | 10:13:02 account_7023(SUCC) own=user_462 gold= | 10:52:04 account_6373(SUCC) own= gold= | 11:01:06 account_2761(SUCC) own= gold= | 11:12:49 account_3584(PART) own= gold=
+2026-02-14 09:05:41 account_9394(PART) own= gold= | 09:53:16 account_6645(SUCC) own=user_467 gold= | 10:04:30 account_641(FAIL) own= gold= | 10:15:43 account_2437(PART) own= gold= | 11:03:47 account_3024(SUCC) own= gold= | 11:14:02 account_3183(SUCC) own=user_451 gold=
+2026-02-16 05:51:23 account_1538(PART) own= gold= | 06:02:37 account_790(PART) own= gold=
+2026-02-17 09:46:56 account_2480(SUCC) own= gold= | 09:55:27 account_7503(SUCC) own= gold= | 10:06:41 account_3653(PART) own= gold=
+2026-02-19 04:54:45 account_6294(PART) own= gold= | 05:53:36 account_1680(SUCC) own= gold= | 06:04:20 account_022(PART) own= gold= | 06:13:21 account_3002(SUCC) own= gold=
+2026-02-22 04:45:15 account_9275(SUCC) own= gold= | 04:56:29 account_5718(PART) own= gold= | 05:05:59 account_1895(FAIL) own= gold= | 05:55:18 account_9194(SUCC) own= gold= | 06:06:33 account_4813(FAIL) own= gold= | 06:15:34 account_3078(FAIL) own= gold=
+2026-02-25 04:47:56 account_7340(SUCC) own= gold= | 04:58:12 account_3827(PART) own= gold= | 05:07:13 account_6635(SUCC) own= gold= | 05:46:47 account_5817(PART) own= gold= | 11:08:25 account_1881(FAIL) own= gold=
+2026-02-27 07:45:06 account_1966(SUCC) own= gold= | 07:54:37 account_8482(FAIL) own= gold= | 08:05:51 account_7606(FAIL) own= gold=
+2026-02-28 04:49:40 account_4042(SUCC) own= gold= | 05:00:54 account_1776(SUCC) own= gold= | 05:09:26 account_1736(PART) own= gold=
+2026-03-02 06:57:32 account_6489(PART) own= gold= | 07:08:46 account_6101(FAIL) own= gold= | 07:47:48 account_3075(SUCC) own= gold= | 07:56:20 account_9120(SUCC) own= gold= | 08:07:34 account_4921(FAIL) own=user_411 gold=
+2026-03-05 06:48:59 account_6006(FAIL) own=user_428 gold= | 06:59:14 account_4204(PART) own=user_427 gold= | 07:10:28 account_2157(SUCC) own= gold= | 07:49:32 account_563(FAIL) own= gold= | 07:58:04 account_9975(SUCC) own= gold= | 08:09:18 account_5260(FAIL) own= gold=
+2026-03-08 06:11:09 account_1897(SUCC) own= gold= | 06:50:12 account_8461(SUCC) own= gold= | 07:01:26 account_1576(PART) own= gold= | 07:12:41 account_9633(PART) own= gold=
+2026-03-10 09:48:50 account_2138(PART) own= gold= | 09:59:34 account_1140(PART) own= gold= | 10:08:07 account_928(SUCC) own= gold=
+2026-03-11 06:52:25 account_2696(PART) own= gold= | 07:03:09 account_2420(SUCC) own=user_421 gold=
+2026-03-13 08:51:43 account_163(SUCC) own= gold= | 09:00:45 account_2775(SUCC) own= gold= | 09:11:29 account_8985(SUCC) own= gold= | 09:50:03 account_3492(SUCC) own= gold= | 10:01:46 account_6443(SUCC) own= gold= | 10:10:48 account_2464(SUCC) own= gold=
+2026-03-16 08:14:23 account_4087(SUCC) own= gold= | 08:53:26 account_9087(FAIL) own= gold= | 09:02:27 account_5754(SUCC) own= gold= | 09:13:11 account_7174(SUCC) own= gold= | 09:52:43 account_1093(PART) own= gold= | 10:12:30 account_2191(SUCC) own= gold=
+2026-03-18 05:00:07 account_6784(FAIL) own=user_379 gold= | 05:11:50 account_4001(SUCC) own= gold=
+2026-03-19 08:55:10 account_1759(SUCC) own= gold= | 09:04:40 account_8997(SUCC) own= gold= | 09:15:54 account_5389(FAIL) own=user_403 gold=
+2026-03-21 04:51:05 account_6246(PART) own=user_377 gold= | 05:02:48 account_976(SUCC) own= gold= | 05:13:32 account_1824(PART) own= gold= | 11:03:27 account_1718(SUCC) own= gold=
+2026-03-24 04:53:46 account_5454(FAIL) own= gold= | 05:04:30 account_2854(SUCC) own=user_373 gold= | 05:15:14 account_8598(SUCC) own=user_372 gold= | 10:54:27 account_7618(SUCC) own= gold= | 11:05:41 account_3206(PART) own= gold= | 11:14:41 account_4446(SUCC) own= gold=
+2026-03-27 04:55:28 account_8684(SUCC) own= gold= | 09:46:09 account_3370(SUCC) own= gold= | 10:45:56 account_8186(FAIL) own= gold= | 10:56:40 account_3978(PART) own= gold= | 11:07:55 account_807(PART) own= gold=
+2026-03-29 06:54:49 account_6445(FAIL) own= gold= | 07:03:21 account_7118(FAIL) own= gold= | 07:14:35 account_6312(SUCC) own= gold=
+2026-03-30 10:47:10 account_4844(SUCC) own= gold= | 10:58:24 account_4441(SUCC) own= gold= | 11:09:08 account_5043(SUCC) own= gold=
+2026-04-01 05:46:26 account_5896(PART) own=user_368 gold= | 06:06:12 account_2062(SUCC) own=user_361 gold= | 06:45:18 account_8105(SUCC) own=user_355 gold= | 06:56:33 account_6093(PART) own= gold= | 07:05:04 account_1850(FAIL) own= gold=
+2026-04-04 05:48:39 account_9570(PART) own= gold= | 05:57:41 account_6567(PART) own= gold= | 06:08:25 account_8590(SUCC) own= gold= | 06:47:01 account_3918(SUCC) own= gold= | 06:58:16 account_9056(FAIL) own= gold= | 07:07:17 account_6539(PART) own=user_353 gold=
+2026-04-07 04:49:23 account_2041(FAIL) own= gold= | 05:50:25 account_3016(SUCC) own= gold= | 05:59:54 account_3204(PART) own=user_369 gold= | 06:10:10 account_4788(FAIL) own= gold=
+2026-04-09 08:46:50 account_1015(FAIL) own= gold= | 08:57:34 account_1340(FAIL) own= gold= | 09:08:48 account_4231(SUCC) own= gold=
+2026-04-10 06:01:39 account_7653(PART) own= gold= | 06:12:23 account_9205(SUCC) own= gold=
+2026-04-12 07:49:45 account_5059(FAIL) own= gold= | 08:00:29 account_5202(PART) own= gold= | 08:09:30 account_6215(SUCC) own= gold= | 08:48:03 account_767(FAIL) own= gold= | 08:59:16 account_2282(FAIL) own= gold= | 09:10:31 account_8892(SUCC) own= gold=
+2026-04-15 06:52:07 account_507(PART) own= gold= | 07:51:58 account_421(SUCC) own= gold= | 08:02:13 account_3372(PART) own= gold= | 08:11:43 account_9881(PART) own= gold= | 08:50:45 account_2255(SUCC) own= gold= | 09:01:59 account_2475(PART) own= gold=
+2026-04-17 10:49:06 account_9178(PART) own= gold= | 11:09:51 account_3525(SUCC) own= gold=
+2026-04-18 07:53:40 account_8834(SUCC) own= gold= | 08:04:54 account_486(PART) own= gold= | 08:13:56 account_5214(SUCC) own= gold=
+2026-04-20 10:12:14 account_5992(FAIL) own= gold= | 10:51:19 account_1972(SUCC) own= gold= | 11:00:49 account_2088(FAIL) own=user_317 gold= | 11:11:04 account_1530(SUCC) own= gold=
+2026-04-23 09:52:29 account_6814(SUCC) own= gold= | 10:03:43 account_2583(SUCC) own= gold= | 10:14:57 account_6301(FAIL) own= gold= | 10:53:01 account_591(SUCC) own= gold= | 11:02:33 account_9523(SUCC) own= gold= | 11:13:17 account_782(PART) own= gold=
+2026-04-26 08:55:22 account_614(PART) own= gold= | 09:45:11 account_3785(FAIL) own=user_324 gold= | 09:54:12 account_206(PART) own= gold= | 10:05:55 account_4606(SUCC) own=user_325 gold= | 11:04:44 account_8264(FAIL) own= gold=
+2026-04-28 05:52:49 account_7249(SUCC) own= gold= | 06:03:33 account_1618(SUCC) own= gold= | 06:12:35 account_9993(SUCC) own= gold=
+2026-04-29 09:47:53 account_2917(SUCC) own=user_322 gold= | 09:56:25 account_2595(SUCC) own= gold= | 10:07:40 account_1242(SUCC) own=user_324 gold=
+2026-05-01 04:55:13 account_3275(SUCC) own= gold= | 05:15:58 account_4718(PART) own= gold= | 05:54:03 account_6023(SUCC) own= gold= | 06:05:17 account_4267(PART) own= gold= | 06:14:47 account_4880(SUCC) own= gold=
+2026-05-04 04:46:11 account_4319(PART) own= gold= | 04:57:26 account_8647(SUCC) own= gold= | 05:06:27 account_1235(FAIL) own= gold= | 05:45:01 account_9091(SUCC) own= gold= | 05:56:44 account_6996(SUCC) own= gold= | 06:07:28 account_8353(SUCC) own= gold=
+2026-05-07 04:48:54 account_7248(SUCC) own= gold= | 04:59:09 account_6680(FAIL) own= gold= | 05:08:40 account_585(SUCC) own=user_305 gold= | 10:58:37 account_9354(SUCC) own= gold=
+2026-05-09 07:46:31 account_6306(PART) own= gold= | 07:55:32 account_2430(SUCC) own= gold= | 08:06:16 account_4664(PART) own= gold=
+2026-05-10 04:50:06 account_7907(PART) own= gold= | 05:10:22 account_4771(PART) own= gold=
+2026-05-12 06:47:43 account_1125(SUCC) own= gold= | 06:58:27 account_8914(PART) own= gold= | 07:09:41 account_7177(SUCC) own= gold= | 07:48:44 account_2352(SUCC) own= gold= | 07:57:46 account_731(SUCC) own= gold= | 08:08:30 account_4853(FAIL) own= gold=
+2026-05-15 06:01:21 account_4835(FAIL) own= gold= | 06:49:55 account_4232(PART) own= gold= | 07:00:39 account_6988(FAIL) own= gold= | 07:11:24 account_4485(SUCC) own= gold= | 07:59:28 account_6575(SUCC) own= gold= | 08:10:42 account_8689(FAIL) own=user_271 gold=
+2026-05-17 09:47:05 account_3150(SUCC) own=user_259 gold= | 09:58:48 account_7811(FAIL) own= gold=
+2026-05-18 06:51:08 account_2016(SUCC) own= gold= | 07:02:22 account_285(FAIL) own= gold= | 07:13:06 account_8322(SUCC) own= gold=
+2026-05-20 08:50:56 account_4226(PART) own= gold= | 09:49:17 account_7942(SUCC) own= gold= | 10:00:01 account_3601(SUCC) own= gold= | 10:09:03 account_9608(PART) own=user_257 gold=
+2026-05-23 08:52:40 account_7699(PART) own=user_263 gold= | 09:01:11 account_7107(SUCC) own= gold= | 09:12:25 account_4331(SUCC) own=user_262 gold= | 09:51:58 account_5091(SUCC) own= gold= | 10:02:13 account_5047(PART) own= gold= | 10:11:15 account_7542(FAIL) own= gold=
+2026-05-26 08:04:33 account_9763(SUCC) own= gold= | 08:54:52 account_1057(PART) own= gold= | 09:03:54 account_9179(SUCC) own= gold= | 09:14:38 account_8384(SUCC) own= gold= | 10:13:56 account_6073(PART) own= gold=
+2026-05-28 04:50:16 account_1789(SUCC) own= gold= | 05:01:30 account_6013(SUCC) own= gold= | 05:12:14 account_2838(SUCC) own=user_231 gold=
+2026-05-29 08:45:21 account_8316(FAIL) own=user_267 gold= | 08:56:36 account_106(SUCC) own=user_262 gold= | 09:05:06 account_5015(SUCC) own= gold=
+2026-05-31 04:52:27 account_945(SUCC) own=user_231 gold= | 05:03:41 account_2788(SUCC) own=user_237 gold= | 05:14:55 account_629(FAIL) own= gold= | 10:53:11 account_4643(SUCC) own= gold= | 11:04:25 account_7518(SUCC) own= gold=
+2026-06-03 04:45:40 account_5264(PART) own= gold= | 04:54:11 account_886(SUCC) own= gold= | 05:05:25 account_2614(SUCC) own= gold= | 10:55:24 account_4181(PART) own= gold= | 11:06:08 account_3631(PART) own= gold= | 11:15:09 account_7010(FAIL) own= gold=
+2026-06-06 10:07:20 account_5072(PART) own= gold= | 10:46:22 account_2981(SUCC) own= gold= | 10:57:36 account_2481(PART) own= gold= | 11:08:20 account_1264(PART) own= gold=
+2026-06-08 06:55:41 account_4066(SUCC) own=user_217 gold= | 07:04:14 account_1007(PART) own= gold= | 07:15:57 account_4678(SUCC) own= gold=
+2026-06-09 10:48:04 account_7650(SUCC) own= gold= | 10:59:47 account_4264(SUCC) own= gold=
+2026-06-11 05:47:53 account_8165(SUCC) own= gold= | 05:56:24 account_8936(SUCC) own= gold= | 06:07:39 account_7324(PART) own=user_229 gold= | 06:46:11 account_9682(SUCC) own= gold= | 06:57:54 account_1956(SUCC) own=user_215 gold= | 07:06:55 account_7030(FAIL) own=user_211 gold=
+2026-06-14 05:10:02 account_3905(SUCC) own= gold= | 05:49:36 account_5549(SUCC) own= gold= | 05:58:08 account_4552(SUCC) own= gold= | 06:09:22 account_7146(SUCC) own= gold= | 06:48:24 account_6674(FAIL) own=user_212 gold= | 07:08:09 account_4752(FAIL) own= gold=
+2026-06-16 08:56:46 account_2933(PART) own= gold= | 09:07:01 account_1964(PART) own= gold=
+2026-06-17 05:51:47 account_7605(SUCC) own= gold= | 06:00:20 account_669(SUCC) own= gold= | 06:11:04 account_392(SUCC) own= gold=
+2026-06-19 07:59:38 account_418(SUCC) own= gold= | 08:47:15 account_9917(SUCC) own= gold= | 08:58:29 account_2210(FAIL) own= gold= | 09:09:43 account_2952(SUCC) own= gold=
+2026-06-22 07:50:07 account_4362(SUCC) own= gold= | 08:01:22 account_6934(FAIL) own= gold= | 08:10:52 account_4348(FAIL) own=user_209 gold= | 08:49:27 account_5599(SUCC) own= gold= | 09:00:11 account_4320(SUCC) own=user_193 gold= | 09:11:25 account_660(SUCC) own= gold=
+2026-06-25 07:13:16 account_7237(SUCC) own=user_211 gold= | 07:52:20 account_5678(PART) own= gold= | 08:03:04 account_4522(SUCC) own= gold= | 08:12:36 account_3685(PART) own= gold= | 08:51:09 account_1065(PART) own= gold=
+2026-06-27 10:50:31 account_3482(FAIL) own= gold= | 10:59:32 account_5309(PART) own= gold= | 11:10:47 account_9876(SUCC) own= gold=
+2026-06-28 07:54:33 account_9268(PART) own= gold= | 08:05:47 account_2399(SUCC) own= gold= | 08:14:18 account_6726(SUCC) own= gold=
+2026-06-30 10:02:24 account_6608(PART) own= gold= | 10:13:39 account_9317(PART) own= gold= | 10:52:43 account_9877(SUCC) own= gold= | 11:01:15 account_1090(FAIL) own= gold= | 11:12:29 account_8423(FAIL) own=user_175 gold=
+2026-07-03 09:53:23 account_7063(SUCC) own= gold= | 10:04:38 account_5848(SUCC) own= gold= | 10:15:52 account_796(PART) own= gold= | 10:54:27 account_6554(PART) own= gold= | 11:03:58 account_246(FAIL) own=user_173 gold= | 11:14:13 account_6659(FAIL) own= gold=
+2026-07-06 08:45:31 account_5547(SUCC) own= gold= | 09:46:35 account_9579(FAIL) own= gold= | 09:55:07 account_5375(PART) own= gold= | 10:06:21 account_3878(FAIL) own= gold=
+2026-07-08 05:53:12 account_4272(PART) own= gold= | 06:04:26 account_1421(SUCC) own= gold= | 06:13:28 account_1688(FAIL) own= gold=
+2026-07-09 09:57:49 account_9620(SUCC) own= gold= | 10:08:03 account_4854(FAIL) own= gold=
+2026-07-11 04:45:25 account_7947(FAIL) own= gold= | 04:56:09 account_665(FAIL) own= gold= | 05:05:41 account_5675(SUCC) own= gold= | 05:55:24 account_2362(SUCC) own= gold= | 06:06:39 account_1992(FAIL) own= gold= | 06:15:10 account_2154(FAIL) own= gold=
+2026-07-14 04:47:07 account_8748(PART) own= gold= | 04:58:20 account_5284(SUCC) own= gold= | 05:07:23 account_7268(PART) own= gold= | 05:46:23 account_7680(PART) own= gold= | 05:57:37 account_8023(PART) own=user_151 gold= | 10:48:18 account_2322(FAIL) own= gold=
+2026-07-16 07:45:12 account_6372(PART) own= gold= | 08:05:56 account_923(PART) own= gold=
+2026-07-17 04:49:49 account_3064(SUCC) own=user_165 gold= | 05:00:33 account_9549(SUCC) own= gold= | 05:09:34 account_1837(SUCC) own= gold=
+2026-07-19 07:08:50 account_8854(SUCC) own= gold= | 07:47:53 account_3734(SUCC) own= gold= | 07:56:26 account_907(SUCC) own= gold= | 08:07:40 account_6452(SUCC) own= gold=
+2026-07-22 06:48:06 account_874(PART) own= gold= | 06:59:49 account_3897(FAIL) own= gold= | 07:10:04 account_9505(SUCC) own= gold= | 07:49:36 account_1084(FAIL) own= gold= | 07:58:08 account_4079(SUCC) own= gold= | 08:09:21 account_1417(SUCC) own= gold=
+2026-07-25 05:51:01 account_5983(FAIL) own= gold= | 06:50:18 account_5023(PART) own= gold= | 07:01:02 account_8632(PART) own= gold= | 07:12:16 account_7864(PART) own= gold= | 08:00:50 account_9191(SUCC) own= gold=
+2026-07-27 09:48:23 account_8656(SUCC) own= gold= | 09:59:37 account_8058(FAIL) own= gold= | 10:08:09 account_081(SUCC) own= gold=
+2026-07-28 06:52:30 account_2900(PART) own= gold= | 07:03:14 account_6826(SUCC) own= gold= | 07:14:28 account_5572(PART) own= gold=
+2026-07-30 08:51:20 account_426(SUCC) own= gold= | 09:11:05 account_4395(PART) own= gold= | 09:50:35 account_1220(PART) own= gold= | 10:01:49 account_1823(SUCC) own= gold= | 10:10:51 account_5785(PART) own=user_116 gold=
+2026-08-02 08:53:32 account_7878(SUCC) own= gold= | 09:02:34 account_8729(FAIL) own= gold= | 09:13:48 account_6673(SUCC) own=user_127 gold= | 09:52:18 account_4833(PART) own=user_111 gold= | 10:03:02 account_6697(PART) own= gold= | 10:12:04 account_1785(SUCC) own=user_115 gold=
+2026-08-05 07:54:42 account_2434(PART) own= gold= | 08:55:14 account_7637(PART) own= gold= | 09:04:16 account_6805(PART) own=user_125 gold= | 09:15:59 account_8819(FAIL) own=user_124 gold=
+2026-08-07 04:51:36 account_7927(SUCC) own= gold= | 05:02:20 account_1034(SUCC) own= gold= | 05:13:34 account_9511(SUCC) own= gold=
+2026-08-08 08:46:41 account_2988(SUCC) own= gold= | 09:06:57 account_8951(PART) own= gold=
+2026-08-10 04:53:18 account_6813(PART) own= gold= | 05:04:32 account_5815(FAIL) own= gold= | 05:15:47 account_4176(FAIL) own= gold= | 10:54:01 account_9314(PART) own= gold= | 11:05:15 account_7578(SUCC) own= gold= | 11:14:17 account_2259(SUCC) own= gold=
+2026-08-13 04:55:02 account_4037(PART) own= gold= | 05:06:17 account_4421(PART) own= gold= | 09:57:55 account_9580(PART) own=user_113 gold= | 10:45:29 account_687(SUCC) own= gold= | 10:56:13 account_6750(PART) own= gold= | 11:07:56 account_7510(SUCC) own= gold=
+2026-08-15 06:54:21 account_4006(PART) own= gold= | 07:14:08 account_9832(SUCC) own=user_80 gold=
+2026-08-16 10:47:40 account_8804(SUCC) own= gold= | 10:58:54 account_6345(SUCC) own=user_103 gold= | 11:09:10 account_4514(SUCC) own= gold=
+2026-08-18 05:46:01 account_3609(FAIL) own= gold= | 06:45:48 account_8754(SUCC) own= gold= | 06:56:04 account_9334(SUCC) own= gold= | 07:05:34 account_5186(PART) own=user_77 gold=
+2026-08-19 10:49:53 account_4070(SUCC) own= gold= | 10:52:22 account_9102(PART) own= gold=case_19 | 11:03:36 account_2373(SUCC) own= gold=
+2026-08-21 05:48:45 account_8764(FAIL) own= gold= | 05:57:16 account_6075(SUCC) own= gold= | 06:08:31 account_9673(PART) own= gold= | 06:47:31 account_1495(PART) own= gold= | 06:58:15 account_9051(PART) own= gold= | 07:07:47 account_925(SUCC) own= gold=
+2026-08-22 10:54:34 account_9494(PART) own= gold= | 11:05:18 account_4745(SUCC) own= gold=case_15 | 11:14:20 account_4092(FAIL) own= gold=case_17
+2026-08-24 05:00:08 account_2056(SUCC) own= gold= | 05:50:56 account_8473(SUCC) own= gold= | 05:59:29 account_868(SUCC) own= gold= | 06:10:13 account_8166(FAIL) own= gold= | 07:09:58 account_6070(SUCC) own= gold=
+2026-08-25 10:45:32 account_8926(FAIL) own=user_20 gold= | 10:56:16 account_8491(PART) own= gold= | 11:07:59 account_9797(SUCC) own= gold=case_12
+2026-08-26 08:46:47 account_3865(PART) own= gold= | 08:57:31 account_631(SUCC) own= gold= | 09:08:44 account_5661(SUCC) own= gold=
+2026-08-27 05:52:37 account_2449(PART) own= gold= | 06:01:11 account_4911(PART) own= gold= | 06:12:24 account_2387(FAIL) own= gold= | 10:55:42 account_4163(SUCC) own= gold=case_30
+2026-08-28 10:47:43 account_5762(FAIL) own= gold= | 11:09:11 account_9255(SUCC) own= gold=
+2026-08-29 07:49:42 account_7643(PART) own= gold= | 08:00:56 account_1378(SUCC) own= gold= | 08:48:28 account_5715(FAIL) own= gold= | 08:59:43 account_1298(SUCC) own= gold= | 09:10:27 account_9862(FAIL) own= gold=
+2026-08-30 10:46:13 account_5482(FAIL) own= gold=case_28 | 10:57:28 account_3866(SUCC) own=user_27 gold=case_27 | 11:06:57 account_7012(FAIL) own= gold=case_29
+2026-09-01 07:51:23 account_6138(SUCC) own= gold= | 08:02:37 account_902(FAIL) own= gold= | 08:11:10 account_6633(SUCC) own=user_67 gold= | 08:50:41 account_994(FAIL) own=user_53 gold=case_16 | 09:01:56 account_6829(PART) own= gold= | 09:12:11 account_4990(SUCC) own= gold=case_22
+2026-09-02 10:48:27 account_3136(FAIL) own= gold=case_25 | 10:50:09 account_4842(SUCC) own= gold= | 10:59:41 account_5334(SUCC) own=user_24 gold=case_24 | 11:08:43 account_5684(FAIL) own=user_26 gold=case_26 | 11:10:25 account_7225(SUCC) own= gold=
+2026-09-03 10:49:04 account_4051(PART) own= gold= | 11:13:32 account_7219(SUCC) own= gold=
+2026-09-04 07:03:52 account_4156(SUCC) own=user_78 gold= | 07:53:05 account_1602(FAIL) own=user_70 gold= | 08:04:19 account_5488(PART) own=user_68 gold= | 08:13:21 account_9079(SUCC) own= gold=
+2026-09-05 10:50:10 account_294(PART) own= gold= | 10:52:20 account_8832(PART) own= gold= | 11:01:52 account_7015(FAIL) own= gold= | 11:01:53 account_6440(SUCC) own= gold=case_21 | 11:10:55 account_410(FAIL) own= gold=case_23 | 11:12:36 account_9155(FAIL) own= gold=
+2026-09-06 10:45:58 account_4857(SUCC) own= gold=case_31 | 10:51:45 account_2381(PART) own= gold= | 11:00:18 account_1810(SUCC) own= gold= | 11:05:15 account_8858(PART) own= gold=case_32 | 11:11:02 account_3677(SUCC) own= gold=case_14
+2026-09-07 07:55:18 account_3960(FAIL) own= gold=case_09 | 08:15:34 account_565(PART) own=user_62 gold=
+2026-09-08 10:54:31 account_8931(SUCC) own= gold= | 11:03:04 account_2577(PART) own= gold= | 11:12:08 account_3270(FAIL) own= gold= | 11:14:47 account_7320(SUCC) own= gold=
+2026-09-09 09:52:26 account_5521(SUCC) own= gold=case_18 | 10:03:41 account_3610(SUCC) own= gold= | 10:14:55 account_5037(FAIL) own= gold=case_20 | 10:53:28 account_9335(FAIL) own= gold=case_13 | 11:02:59 account_5193(SUCC) own= gold= | 11:13:14 account_5823(SUCC) own= gold=
+2026-09-12 09:06:33 account_7119(SUCC) own= gold= | 09:45:38 account_617(PART) own= gold= | 09:54:10 account_034(SUCC) own= gold= | 10:05:24 account_483(PART) own= gold= | 11:04:43 account_4248(SUCC) own= gold=case_11 | 11:15:27 account_146(SUCC) own= gold=
+2026-09-15 09:47:50 account_2064(PART) own=user_49 gold= | 09:56:51 account_6523(SUCC) own= gold= | 10:07:35 account_7566(SUCC) own= gold=case_03

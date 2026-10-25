@@ -1,0 +1,158 @@
+--- a/code/audit/linker.py
++++ b/code/audit/linker.py
+@@ -25,10 +25,38 @@
+     return bool(obs.emails & ident.emails or obs.hashes & ident.hashes or ident.user_id in obs.users)
+ 
+ 
++def _identifier_index(store) -> dict:
++    """identifier -> sorted store positions of observations carrying it (built once per store).
++
++    Only an observation sharing an email, hash or user_id with the subject can satisfy
++    `matches`, so the index narrows the scan without changing which observations match.
++    The cache is rebuilt if the observation list is replaced or grows.
++    """
++    observations = store.observations
++    cached = getattr(store, "_linker_index", None)
++    if cached is not None and cached[0] is observations and cached[1] == len(observations):
++        return cached[2]
++    index: dict = {}
++    for pos, obs in enumerate(observations):
++        for key in {("e", v) for v in obs.emails} | {("h", v) for v in obs.hashes} | \
++                {("u", v) for v in obs.users}:
++            index.setdefault(key, []).append(pos)
++    store._linker_index = (observations, len(observations), index)
++    return index
++
++
+ def link_resources(ident: Identity, store, audit_at: str, by_resource: dict) -> tuple[set, list]:
+     """Return (linked resource ids, provenance list of (resource, reason, evidence_id))."""
+     linked: dict[str, tuple] = {}
+-    for obs in sorted(store.observations, key=lambda o: not visible(o, audit_at)):
++    index = _identifier_index(store)
++    observations = store.observations
++    positions: set = set()
++    for key in [("e", v) for v in ident.emails] + [("h", v) for v in ident.hashes] + [("u", ident.user_id)]:
++        positions.update(index.get(key, ()))
++    # Same order as a stable sort of all observations on `not visible`: visible first, each
++    # group in store order, so the first match per resource (and its provenance) is unchanged.
++    candidates = sorted(positions, key=lambda p: (not visible(observations[p], audit_at), p))
++    for obs in (observations[p] for p in candidates):
+         if matches(obs, ident) and obs.resource_id not in linked:
+             reason = "identifier" if visible(obs, audit_at) else "identifier_later_evidence"
+             linked[obs.resource_id] = (obs.resource_id, reason, obs.evidence_id)
+--- a/code/audit/pipeline.py
++++ b/code/audit/pipeline.py
+@@ -60,6 +60,15 @@
+         if not users:
+             return ad_hoc, [g.FLAG_IDENTITY_UNRESOLVED]
+         return ad_hoc, [g.FLAG_IDENTITY_AMBIGUOUS]   # never guess between two people
++
++    def links_for(self, ident: Identity, audit_at: str) -> tuple[set, list]:
++        """link_resources memoized per (identity identifiers, audit_at); returns fresh copies."""
++        memo = self.__dict__.setdefault("_link_memo", {})
++        key = (ident.user_id, frozenset(ident.emails), frozenset(ident.hashes), audit_at)
++        if key not in memo:
++            memo[key] = link_resources(ident, self.store, audit_at, self.by_resource)
++        linked, provenance = memo[key]
++        return set(linked), list(provenance)
+ 
+     # ---- workflow attribution (fallback when evidence carries no identity) ----------------
+     def assign_workflow_resources(self, cases: list[Case]) -> None:
+@@ -83,7 +92,7 @@
+         case_linked: dict[str, set] = {}
+         for case in cases:
+             ident, _ = self.identity_for(case)
+-            linked, _ = link_resources(ident, self.store, case.audit_at, self.by_resource)
++            linked, _ = self.links_for(ident, case.audit_at)
+             claimed |= linked
+             case_linked[case.case_id] = linked
+         evidence_accounts = {cid: any(r.startswith("account_") for r in linked)
+@@ -178,7 +187,7 @@
+     # ---- one case ------------------------------------------------------------------------
+     def audit(self, case: Case) -> Decision:
+         ident, flags = self.identity_for(case)
+-        linked, provenance = link_resources(ident, self.store, case.audit_at, self.by_resource)
++        linked, provenance = self.links_for(ident, case.audit_at)
+         non_deletion = any(
+             row["event_time"] <= case.audit_at
+             for rid in linked for row in [self.store.activity.non_deletion_resources.get(rid)] if row)
+--- /dev/null
++++ b/code/tests/test_linker_index.py
+@@ -0,0 +1,77 @@
++"""The identifier-indexed linker and the Auditor memo must equal the original full scan exactly."""
++import unittest
++
++from helpers import FakeStore, ident, obs, real_auditor
++
++from audit.linker import _no_conflict, link_resources, matches, visible
++
++
++def reference_link_resources(ident_, store, audit_at, by_resource):
++    """The original full-scan algorithm, kept verbatim as the oracle."""
++    linked = {}
++    for o in sorted(store.observations, key=lambda o: not visible(o, audit_at)):
++        if matches(o, ident_) and o.resource_id not in linked:
++            reason = "identifier" if visible(o, audit_at) else "identifier_later_evidence"
++            linked[o.resource_id] = (o.resource_id, reason, o.evidence_id)
++    changed = True
++    while changed:
++        changed = False
++        for a, b, ev in store.links:
++            if ev in store.manifest and store.manifest[ev]["captured_at"] > audit_at:
++                continue
++            for x, y in ((a, b), (b, a)):
++                if x in linked and y not in linked and _no_conflict(y, ident_, by_resource, audit_at):
++                    linked[y] = (y, f"resource_link:{x}", ev)
++                    changed = True
++        for source, downstream, row in store.activity.recreation_links:
++            if row["event_time"] <= audit_at and downstream in linked and source not in linked:
++                linked[source] = (source, f"repopulates:{downstream}", row["activity_id"])
++                changed = True
++    return set(linked), list(linked.values())
++
++
++class IndexedLinkerEquivalenceTests(unittest.TestCase):
++    def test_identical_to_full_scan_for_every_eval_and_sample_case(self):
++        auditor, cases = real_auditor()
++        self.assertGreaterEqual(len(cases), 550)
++        for cid, case in sorted(cases.items()):
++            me, _ = auditor.identity_for(case)
++            want = reference_link_resources(me, auditor.store, case.audit_at, auditor.by_resource)
++            got = link_resources(me, auditor.store, case.audit_at, auditor.by_resource)
++            self.assertEqual(got, want, cid)              # provenance order included
++            self.assertEqual(auditor.links_for(me, case.audit_at), want, cid)
++
++    def test_visible_evidence_wins_provenance_over_earlier_later_evidence(self):
++        me = ident(emails=("a@x.com",))
++        late = obs("search_1", ev="ev_late", at="2026-10-01T00:00:00Z", emails={"a@x.com"})
++        early = obs("search_1", ev="ev_early", at="2026-08-01T00:00:00Z", emails={"a@x.com"})
++        only_late = obs("export_1", ev="ev_late2", at="2026-10-02T00:00:00Z", users={"user_1"})
++        decoy = obs("support_9", emails={"a@x.com"}, users={"user_999"})
++        store = FakeStore([late, only_late, decoy, early])
++        got = link_resources(me, store, "2026-09-01T00:00:00Z", {})
++        self.assertEqual(got, reference_link_resources(me, store, "2026-09-01T00:00:00Z", {}))
++        self.assertEqual(got[1], [("search_1", "identifier", "ev_early"),
++                                  ("export_1", "identifier_later_evidence", "ev_late2")])
++
++    def test_index_rebuilds_when_observations_grow(self):
++        me = ident(emails=("a@x.com",))
++        store = FakeStore([obs("search_1", emails={"a@x.com"})])
++        self.assertEqual(link_resources(me, store, "2026-12-01T00:00:00Z", {})[0], {"search_1"})
++        store.observations.append(obs("analytics_2", emails={"a@x.com"}))
++        self.assertEqual(link_resources(me, store, "2026-12-01T00:00:00Z", {})[0],
++                         {"search_1", "analytics_2"})
++
++    def test_memo_returns_independent_copies(self):
++        auditor, cases = real_auditor()
++        case = cases[sorted(cases)[0]]
++        me, _ = auditor.identity_for(case)
++        first, prov = auditor.links_for(me, case.audit_at)
++        first.add("mutated_by_caller")
++        prov.append(("x", "y", "z"))
++        again, prov2 = auditor.links_for(me, case.audit_at)
++        self.assertNotIn("mutated_by_caller", again)
++        self.assertNotIn(("x", "y", "z"), prov2)
++
++
++if __name__ == "__main__":
++    unittest.main()

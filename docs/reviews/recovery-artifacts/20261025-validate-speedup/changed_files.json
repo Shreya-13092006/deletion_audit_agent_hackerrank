@@ -1,0 +1,16 @@
+[
+ {
+  "path": "code/audit/validate.py",
+  "change": "modified",
+  "sha256_before": "6c58bd992609afe06ea6061f5799051661d15a55c8d8fc18e986b968ad47c794",
+  "sha256_after": "8e7862328b96d4701fef1d8094821e7d77b0a05620e29ccc42e4556a8704f7cd",
+  "sha256_source_at_creation": "6c58bd992609afe06ea6061f5799051661d15a55c8d8fc18e986b968ad47c794"
+ },
+ {
+  "path": "code/tests/test_validate_activity_cache.py",
+  "change": "added",
+  "sha256_before": null,
+  "sha256_after": "b2d15ca15b10cb37f8e498d719f295689e202c39451481ae5a44bfa62911bec5",
+  "sha256_source_at_creation": null
+ }
+]

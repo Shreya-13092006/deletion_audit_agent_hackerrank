@@ -1,0 +1,16 @@
+[
+ {
+  "path": "code/audit/trail.py",
+  "change": "modified",
+  "sha256_before": "ca64f3afde81f225a30dedad5117ad7803c6431cd388a87720ede56cbd8a39e9",
+  "sha256_after": "976f184f160d41f310927ed24a0ddbf7556cce9e49c786eb81079bc984e96182",
+  "sha256_source_at_creation": "ca64f3afde81f225a30dedad5117ad7803c6431cd388a87720ede56cbd8a39e9"
+ },
+ {
+  "path": "code/tests/test_selftest_marker.py",
+  "change": "added",
+  "sha256_before": null,
+  "sha256_after": "4fe457177cc9cbc26ab82e5974f8a6bb23fd307484cb2ddc53cb6fcfa97e0ddd",
+  "sha256_source_at_creation": null
+ }
+]
